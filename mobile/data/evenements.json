@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mariage",
+    "image": "2",
+    "highlight": true,
+    "name": { "fr": "Mariage", "en": "Wedding" },
+    "description": {
+      "fr": "Un menu raffiné pensé pour sublimer le plus beau jour de votre vie, du cocktail d'accueil au dessert.",
+      "en": "A refined menu designed to elevate your most beautiful day, from welcome cocktail to dessert."
+    },
+    "features": {
+      "fr": ["Entrées raffinées", "Plats principaux généreux", "Accompagnements variés", "Desserts gourmands"],
+      "en": ["Refined starters", "Generous main courses", "Varied sides", "Indulgent desserts"]
+    }
+  },
+  {
+    "id": "anniversaire",
+    "image": "23",
+    "highlight": false,
+    "name": { "fr": "Anniversaire", "en": "Birthday" },
+    "description": {
+      "fr": "Un buffet chaleureux et convivial pour célébrer en famille ou entre amis, aux couleurs de la Côte d'Ivoire.",
+      "en": "A warm, convivial buffet to celebrate with family and friends, in the colors of Côte d'Ivoire."
+    },
+    "features": {
+      "fr": ["Buffet généreux", "Options sucrées et salées", "Formule modulable selon le nombre d'invités"],
+      "en": ["Generous buffet", "Sweet and savory options", "Scalable to your guest count"]
+    }
+  },
+  {
+    "id": "entreprise",
+    "image": "24",
+    "highlight": false,
+    "name": { "fr": "Entreprise", "en": "Corporate" },
+    "description": {
+      "fr": "Cocktails dînatoires et pauses café africaines pour vos séminaires et événements professionnels.",
+      "en": "Cocktail receptions and African-inspired coffee breaks for your seminars and corporate events."
+    },
+    "features": {
+      "fr": ["Cocktail dînatoire", "Pause café africaine", "Service séminaire clé en main"],
+      "en": ["Cocktail reception", "African coffee break", "Full-service seminar catering"]
+    }
+  }
+]

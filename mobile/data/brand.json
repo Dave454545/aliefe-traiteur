@@ -1,0 +1,14 @@
+{
+  "name": "Alièfè",
+  "slogan": "Saveur d'Afrique",
+  "secondaryTagline": "L'Excellence Ivoirienne",
+  "city": "Casablanca",
+  "country": "Maroc",
+  "phone": "+212 600 000 000",
+  "phoneDial": "+212600000000",
+  "whatsapp": "+212600000000",
+  "email": "contact@aliefe.ma",
+  "instagram": { "handle": "@aliefe.traiteur", "url": "https://instagram.com/aliefe.traiteur" },
+  "facebook": { "handle": "Alièfè Traiteur", "url": "https://facebook.com/aliefetraiteur" },
+  "_note": "Coordonnées et réseaux sociaux placeholders — à remplacer par les vraies informations du client avant publication."
+}

@@ -1,0 +1,240 @@
+[
+  {
+    "id": "ent-samoussas",
+    "category": "entrees",
+    "image": "21",
+    "signature": false,
+    "tags": ["spicy"],
+    "name": { "fr": "Samoussas de bœuf épicés", "en": "Spiced Beef Samosas" },
+    "description": {
+      "fr": "Croustillants triangles feuilletés, farcis d'un bœuf finement épicé, servis avec une sauce pimentée maison.",
+      "en": "Crisp filo triangles filled with finely spiced beef, served with a house chili sauce."
+    }
+  },
+  {
+    "id": "ent-crevettes",
+    "category": "entrees",
+    "image": "22",
+    "signature": false,
+    "tags": ["shellfish"],
+    "name": { "fr": "Beignets de crevettes", "en": "Shrimp Fritters" },
+    "description": {
+      "fr": "Crevettes marinées aux épices douces, enrobées d'une pâte légère et frites à la minute.",
+      "en": "Shrimp marinated in gentle spices, dipped in a light batter and fried to order."
+    }
+  },
+  {
+    "id": "ent-avocat-mangue",
+    "category": "entrees",
+    "image": "5",
+    "signature": false,
+    "tags": ["vegetarian"],
+    "name": { "fr": "Salade avocat-mangue", "en": "Avocado & Mango Salad" },
+    "description": {
+      "fr": "Avocat crémeux et mangue fraîche, vinaigrette au piment doux et citron vert.",
+      "en": "Creamy avocado and fresh mango, mild chili and lime dressing."
+    }
+  },
+  {
+    "id": "plat-attieke",
+    "category": "plats",
+    "image": "1",
+    "signature": true,
+    "tags": ["fish"],
+    "name": { "fr": "Attiéké poisson braisé", "en": "Attiéké with Grilled Fish" },
+    "description": {
+      "fr": "Semoule de manioc fermentée, poisson braisé aux épices, oignons et tomates confites.",
+      "en": "Fermented cassava couscous, braised fish with spices, onions and slow-roasted tomatoes."
+    }
+  },
+  {
+    "id": "plat-alloco",
+    "category": "plats",
+    "image": "6",
+    "signature": false,
+    "tags": ["vegetarian"],
+    "name": { "fr": "Alloco", "en": "Alloco (Fried Plantain)" },
+    "description": {
+      "fr": "Bananes plantains mûres frites, dorées à point, un incontournable de la table ivoirienne.",
+      "en": "Ripe fried plantains, golden and sweet — a cornerstone of Ivorian tables."
+    }
+  },
+  {
+    "id": "plat-kedjenou",
+    "category": "plats",
+    "image": "2",
+    "signature": true,
+    "tags": ["spicy"],
+    "name": { "fr": "Kedjenou de poulet", "en": "Chicken Kedjenou" },
+    "description": {
+      "fr": "Poulet mijoté à l'étouffée avec légumes et épices, dans la pure tradition ivoirienne.",
+      "en": "Chicken slow-simmered with vegetables and spices, in pure Ivorian tradition."
+    }
+  },
+  {
+    "id": "plat-garba",
+    "category": "plats",
+    "image": "23",
+    "signature": true,
+    "tags": ["fish"],
+    "name": { "fr": "Garba", "en": "Garba (Attiéké & Tuna)" },
+    "description": {
+      "fr": "Attiéké et thon frit, servis avec piment et oignons — le classique généreux de la rue abidjanaise.",
+      "en": "Attiéké and fried tuna, served with chili and onions — the generous classic of Abidjan streets."
+    }
+  },
+  {
+    "id": "plat-foutou",
+    "category": "plats",
+    "image": "3",
+    "signature": true,
+    "tags": ["peanut"],
+    "name": { "fr": "Foutou banane, sauce graine", "en": "Foutou Plantain, Palm Nut Sauce" },
+    "description": {
+      "fr": "Pâte de banane pilée, accompagnée d'une riche sauce graine mijotée longuement.",
+      "en": "Pounded plantain paste, served with a rich, slow-simmered palm nut sauce."
+    }
+  },
+  {
+    "id": "plat-foufou",
+    "category": "plats",
+    "image": "24",
+    "signature": false,
+    "tags": ["peanut"],
+    "name": { "fr": "Foufou, sauce arachide", "en": "Foufou, Peanut Sauce" },
+    "description": {
+      "fr": "Pâte moelleuse traditionnelle, servie avec une onctueuse sauce arachide relevée.",
+      "en": "Traditional smooth pounded paste, served with a velvety spiced peanut sauce."
+    }
+  },
+  {
+    "id": "plat-riz-gras",
+    "category": "plats",
+    "image": "4",
+    "signature": false,
+    "tags": [],
+    "name": { "fr": "Riz gras ivoirien", "en": "Ivorian Jollof Rice" },
+    "description": {
+      "fr": "Riz mijoté dans un bouillon parfumé de tomates, oignons et épices, viande ou poisson au choix.",
+      "en": "Rice simmered in a fragrant tomato, onion and spice broth, with meat or fish."
+    }
+  },
+  {
+    "id": "plat-sauce-gombo",
+    "category": "plats",
+    "image": "25",
+    "signature": false,
+    "tags": ["spicy"],
+    "name": { "fr": "Sauce gombo ou feuille", "en": "Okra or Leaf Sauce" },
+    "description": {
+      "fr": "Sauce traditionnelle au gombo ou aux feuilles, viande fumée et poisson, servie avec un accompagnement au choix.",
+      "en": "Traditional okra or leaf sauce with smoked meat and fish, served with a side of your choice."
+    }
+  },
+  {
+    "id": "boisson-bissap",
+    "category": "boissons",
+    "image": "4",
+    "signature": false,
+    "tags": ["vegetarian"],
+    "name": { "fr": "Bissap", "en": "Bissap (Hibiscus)" },
+    "description": {
+      "fr": "Infusion glacée d'hibiscus, légèrement sucrée à la menthe fraîche.",
+      "en": "Chilled hibiscus infusion, lightly sweetened with fresh mint."
+    }
+  },
+  {
+    "id": "boisson-passion",
+    "category": "boissons",
+    "image": "21",
+    "signature": false,
+    "tags": ["vegetarian"],
+    "name": { "fr": "Jus de fruit de la passion", "en": "Passion Fruit Juice" },
+    "description": {
+      "fr": "Pulpe de fruit de la passion pressée, fraîcheur acidulée et naturelle.",
+      "en": "Freshly pressed passion fruit pulp, naturally tangy and refreshing."
+    }
+  },
+  {
+    "id": "boisson-baobab",
+    "category": "boissons",
+    "image": "22",
+    "signature": false,
+    "tags": ["vegetarian"],
+    "name": { "fr": "Jus de baobab", "en": "Baobab Juice" },
+    "description": {
+      "fr": "Pulpe de baobab, douce et légèrement vanillée, une rareté rafraîchissante.",
+      "en": "Baobab pulp, mellow with a hint of vanilla — a refreshing rarity."
+    }
+  },
+  {
+    "id": "boisson-gingembre",
+    "category": "boissons",
+    "image": "5",
+    "signature": false,
+    "tags": ["spicy", "vegetarian"],
+    "name": { "fr": "Gingembre-citron maison", "en": "House Ginger & Lime" },
+    "description": {
+      "fr": "Gingembre frais infusé, citron vert et pointe de piment — un réveil des papilles.",
+      "en": "Fresh-infused ginger, lime and a touch of chili — a real wake-up for the palate."
+    }
+  },
+  {
+    "id": "dessert-torfi",
+    "category": "desserts",
+    "image": "6",
+    "signature": false,
+    "tags": ["peanut"],
+    "name": { "fr": "Torfi", "en": "Torfi" },
+    "description": {
+      "fr": "Douceur traditionnelle à base d'arachide caramélisée, croquante et gourmande.",
+      "en": "Traditional treat of caramelized peanuts, crunchy and indulgent."
+    }
+  },
+  {
+    "id": "dessert-caramel",
+    "category": "desserts",
+    "image": "23",
+    "signature": false,
+    "tags": [],
+    "name": { "fr": "Caramel ivoirien", "en": "Ivorian Caramel" },
+    "description": {
+      "fr": "Confiserie fondante au caramel, recette transmise de génération en génération.",
+      "en": "Melting caramel confection, a recipe passed down through generations."
+    }
+  },
+  {
+    "id": "dessert-galette",
+    "category": "desserts",
+    "image": "24",
+    "signature": false,
+    "tags": ["vegetarian"],
+    "name": { "fr": "Galette aller-retour", "en": "Aller-Retour Pastry" },
+    "description": {
+      "fr": "Petite galette frite légèrement sucrée, croustillante à l'extérieur, moelleuse à l'intérieur.",
+      "en": "Small lightly sweetened fried pastry, crisp outside, soft within." }
+  },
+  {
+    "id": "dessert-beignets",
+    "category": "desserts",
+    "image": "25",
+    "signature": false,
+    "tags": ["vegetarian"],
+    "name": { "fr": "Beignets africains", "en": "African Doughnuts" },
+    "description": {
+      "fr": "Beignets moelleux dorés à souhait, servis chauds — un classique convivial.",
+      "en": "Soft doughnuts fried to golden perfection, served warm — a convivial classic."
+    }
+  },
+  {
+    "id": "dessert-croquettes",
+    "category": "desserts",
+    "image": "2",
+    "signature": false,
+    "tags": ["vegetarian"],
+    "name": { "fr": "Croquettes coco", "en": "Coconut Croquettes" },
+    "description": {
+      "fr": "Petites bouchées à la noix de coco, sucrées et fondantes.",
+      "en": "Small coconut bites, sweet and melt-in-the-mouth." }
+  }
+]

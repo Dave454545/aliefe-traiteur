@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "events": "Events",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "common": {
+    "search": "Search a dish…",
+    "seeAll": "See all",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "back": "Back",
+    "noResults": "No dish matches your search.",
+    "loading": "Loading…",
+    "contactUs": "Get in touch",
+    "contactUsSubtitle": "A craving, a question? One tap is enough.",
+    "callSubtitle": "Immediate answer",
+    "whatsappSubtitle": "Reply within 24h"
+  },
+  "categories": {
+    "entrees": "Starters",
+    "plats": "Mains",
+    "boissons": "Drinks",
+    "desserts": "Desserts",
+    "evenementiel": "Events"
+  },
+  "tags": {
+    "spicy": "Spicy",
+    "vegetarian": "Vegetarian",
+    "fish": "Fish",
+    "shellfish": "Shellfish",
+    "peanut": "Peanut"
+  },
+  "home": {
+    "eyebrow": "Ivorian Caterer in Casablanca",
+    "heroBaseline": "Ivorian Excellence",
+    "heroText": "Authentic, generous cuisine, elevated for your most beautiful occasions.",
+    "featuredTitle": "Featured",
+    "featuredSubtitle": "Our signature dishes",
+    "categoriesTitle": "Explore the menu",
+    "eventsTitle": "Your events",
+    "eventsText": "Weddings, birthdays, seminars — a bespoke menu for every occasion.",
+    "eventsCta": "View packages",
+    "aboutTeaserTitle": "Our story",
+    "aboutTeaserText": "Born from a passion for Ivorian gastronomy, Alièfè takes your guests on a journey through its flavors.",
+    "aboutTeaserCta": "Learn more"
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Authentic Ivorian flavors, prepared with care"
+  },
+  "dish": {
+    "descriptionLabel": "Description",
+    "tagsLabel": "Good to know",
+    "orderCall": "Order by call",
+    "orderWhatsapp": "Order by WhatsApp",
+    "whatsappMessage": "Hello Alièfè, I'd like to order: {{dish}}."
+  },
+  "events": {
+    "title": "Events",
+    "subtitle": "Packages designed for every important moment",
+    "featuresLabel": "Included in the package",
+    "requestQuote": "Request a quote",
+    "whatsappMessage": "Hello Alièfè, I'd like a quote for: {{event}}."
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "subtitle": "A glimpse of our work"
+  },
+  "about": {
+    "title": "Our Story",
+    "eyebrow": "About",
+    "baseline": "Ivorian Excellence",
+    "paragraph1": "Alièfè was born from a passion for Ivorian gastronomy and the art of sharing food. Based in Casablanca, our mission is to introduce the authentic flavors of Côte d'Ivoire through dishes prepared with care, fresh produce and traditional know-how.",
+    "paragraph2": "Every event — wedding, birthday or seminar — becomes a warm, unforgettable moment, where your guests travel to the heart of Ivorian flavors, as if they were back home.",
+    "missionTitle": "Mission",
+    "missionText": "Offering an authentic, elegant culinary experience.",
+    "visionTitle": "Vision",
+    "visionText": "Becoming the reference for upscale Ivorian catering in Morocco.",
+    "valuesTitle": "Our Values",
+    "values": ["Authenticity", "Quality", "Respect", "Customer satisfaction"]
+  },
+  "contact": {
+    "title": "Let's talk about your event",
+    "subtitle": "Call us or write on WhatsApp, we reply within 24h.",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "addressLabel": "Address",
+    "followUs": "Follow us",
+    "call": "Call now",
+    "whatsapp": "Message on WhatsApp",
+    "whatsappMessage": "Hello Alièfè, I'd like more information."
+  },
+  "settings": {
+    "language": "Language",
+    "theme": "Appearance",
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

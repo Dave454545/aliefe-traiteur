@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "menu": "Menu",
+    "events": "Événementiel",
+    "gallery": "Galerie",
+    "contact": "Contact"
+  },
+  "common": {
+    "search": "Rechercher un plat…",
+    "seeAll": "Tout voir",
+    "call": "Appeler",
+    "whatsapp": "WhatsApp",
+    "back": "Retour",
+    "noResults": "Aucun plat ne correspond à votre recherche.",
+    "loading": "Chargement…",
+    "contactUs": "Nous contacter",
+    "contactUsSubtitle": "Une envie, une question ? Un seul geste suffit.",
+    "callSubtitle": "Réponse immédiate",
+    "whatsappSubtitle": "Réponse sous 24h"
+  },
+  "categories": {
+    "entrees": "Entrées",
+    "plats": "Plats",
+    "boissons": "Boissons",
+    "desserts": "Desserts",
+    "evenementiel": "Événementiel"
+  },
+  "tags": {
+    "spicy": "Épicé",
+    "vegetarian": "Végétarien",
+    "fish": "Poisson",
+    "shellfish": "Crustacés",
+    "peanut": "Arachide"
+  },
+  "home": {
+    "eyebrow": "Traiteur ivoirien à Casablanca",
+    "heroBaseline": "L'Excellence Ivoirienne",
+    "heroText": "Une cuisine authentique et généreuse, sublimée pour vos plus beaux événements.",
+    "featuredTitle": "Mis en avant",
+    "featuredSubtitle": "Nos plats signature",
+    "categoriesTitle": "Découvrir la carte",
+    "eventsTitle": "Vos événements",
+    "eventsText": "Mariages, anniversaires, séminaires — un menu sur mesure pour chaque occasion.",
+    "eventsCta": "Voir les formules",
+    "aboutTeaserTitle": "Notre histoire",
+    "aboutTeaserText": "Née de la passion pour la gastronomie ivoirienne, Alièfè fait voyager vos invités à travers ses saveurs.",
+    "aboutTeaserCta": "En savoir plus"
+  },
+  "menu": {
+    "title": "Notre Carte",
+    "subtitle": "Des saveurs ivoiriennes authentiques, préparées avec soin"
+  },
+  "dish": {
+    "descriptionLabel": "Description",
+    "tagsLabel": "À savoir",
+    "orderCall": "Commander par appel",
+    "orderWhatsapp": "Commander par WhatsApp",
+    "whatsappMessage": "Bonjour Alièfè, je souhaite commander : {{dish}}."
+  },
+  "events": {
+    "title": "Événementiel",
+    "subtitle": "Des formules pensées pour chaque moment important",
+    "featuresLabel": "Compris dans la formule",
+    "requestQuote": "Demander un devis",
+    "whatsappMessage": "Bonjour Alièfè, je souhaite un devis pour : {{event}}."
+  },
+  "gallery": {
+    "title": "Galerie Photos",
+    "subtitle": "Un aperçu de nos réalisations"
+  },
+  "about": {
+    "title": "Notre Histoire",
+    "eyebrow": "À propos",
+    "baseline": "L'Excellence Ivoirienne",
+    "paragraph1": "Alièfè est née de la passion pour la gastronomie ivoirienne et le partage culinaire. Installée à Casablanca, la maison a pour mission de faire découvrir les saveurs authentiques de la Côte d'Ivoire à travers des plats préparés avec soin, des produits frais et un savoir-faire traditionnel.",
+    "paragraph2": "Chaque événement — mariage, anniversaire ou séminaire — devient un moment convivial et inoubliable, où vos invités voyagent au cœur des saveurs ivoiriennes, comme s'ils étaient au pays.",
+    "missionTitle": "Mission",
+    "missionText": "Offrir une expérience culinaire authentique et élégante.",
+    "visionTitle": "Vision",
+    "visionText": "Devenir la référence du traiteur ivoirien haut de gamme au Maroc.",
+    "valuesTitle": "Nos Valeurs",
+    "values": ["Authenticité", "Qualité", "Respect", "Satisfaction client"]
+  },
+  "contact": {
+    "title": "Parlons de votre projet",
+    "subtitle": "Appelez-nous ou écrivez-nous sur WhatsApp, nous répondons sous 24h.",
+    "phoneLabel": "Téléphone",
+    "emailLabel": "Email",
+    "addressLabel": "Adresse",
+    "followUs": "Suivez-nous",
+    "call": "Appeler maintenant",
+    "whatsapp": "Écrire sur WhatsApp",
+    "whatsappMessage": "Bonjour Alièfè, je souhaite avoir plus d'informations."
+  },
+  "settings": {
+    "language": "Langue",
+    "theme": "Apparence",
+    "light": "Clair",
+    "dark": "Sombre"
+  }
+}
