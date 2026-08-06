@@ -6,6 +6,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CategoryBar } from "@/components/CategoryBar";
 import { FeaturedCarousel } from "@/components/FeaturedCarousel";
 import { HeaderControls } from "@/components/HeaderControls";
+import { InstallAppBanner } from "@/components/InstallAppBanner";
 import { Logo } from "@/components/Logo";
 import { PhotoScrim } from "@/components/PhotoScrim";
 import { SearchBar } from "@/components/SearchBar";
@@ -38,13 +39,15 @@ export default function HomeScreen() {
   return (
     <ScrollView
       style={{ backgroundColor: colors.bg }}
-      contentContainerStyle={{ paddingTop: insets.top + spacing.sm, paddingBottom: 140 }}
+      contentContainerStyle={{ paddingTop: insets.top + spacing.sm, paddingBottom: 140 + insets.bottom }}
       showsVerticalScrollIndicator={false}
     >
       <View style={styles.headerRow}>
         <Logo size="sm" align="flex-start" />
         <HeaderControls />
       </View>
+
+      <InstallAppBanner />
 
       <View style={styles.heroText}>
         <Text style={[styles.eyebrow, { color: colors.accent, fontFamily: fonts.bodySemiBold }]}>

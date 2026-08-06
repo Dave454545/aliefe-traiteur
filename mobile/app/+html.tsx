@@ -28,6 +28,26 @@ export default function Root({ children }: PropsWithChildren) {
 
         {/* RN Web resets body/html scroll so the app can manage its own scroll views */}
         <ScrollViewStyleReset />
+        {/*
+          expo-router's reset above pins html/body/#root to height:100%, which mobile
+          browsers resolve against a stale viewport as the address bar shows/hides —
+          the gap shows through as blank space below fixed elements like the tab bar.
+          100dvh tracks the actual visual viewport instead. The background-color
+          fallback (matching each theme's --bg, see constants/theme.ts) avoids a white
+          flash in the safe-area gutter before the app mounts its own surfaces.
+        */}
+        <style
+          id="aliefe-viewport-fix"
+          dangerouslySetInnerHTML={{
+            __html: `
+              body { background-color: #F6F1E6; }
+              @media (prefers-color-scheme: dark) { body { background-color: #14201B; } }
+              @supports (height: 100dvh) {
+                html, body, #root { height: 100dvh; }
+              }
+            `,
+          }}
+        />
       </head>
       <body>{children}</body>
     </html>

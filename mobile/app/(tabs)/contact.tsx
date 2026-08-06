@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Logo } from "@/components/Logo";
 import { fonts, radius, spacing } from "@/constants/theme";
@@ -13,11 +14,12 @@ export default function ContactScreen() {
   const { colors } = useTheme();
   const { t } = useLocale();
   const insets = useSafeAreaInsets();
+  const router = useRouter();
 
   return (
     <ScrollView
       style={{ backgroundColor: colors.bg }}
-      contentContainerStyle={{ paddingTop: insets.top + spacing.lg, paddingBottom: 140 }}
+      contentContainerStyle={{ paddingTop: insets.top + spacing.lg, paddingBottom: 140 + insets.bottom }}
       showsVerticalScrollIndicator={false}
     >
       <Logo size="md" />
@@ -60,6 +62,21 @@ export default function ContactScreen() {
           value={`${brand.city}, ${brand.country}`}
         />
       </View>
+
+      {Platform.OS === "web" && (
+        <Pressable
+          onPress={() => router.push("/installer")}
+          style={[styles.installRow, { backgroundColor: colors.surface, borderColor: colors.rule }]}
+        >
+          <View style={[styles.infoIcon, { backgroundColor: colors.surfaceAlt, borderColor: colors.rule }]}>
+            <Ionicons name="download-outline" size={17} color={colors.accent} />
+          </View>
+          <Text style={[styles.installText, { color: colors.ink, fontFamily: fonts.bodyMedium }]}>
+            {t("install.guideTitle")}
+          </Text>
+          <Ionicons name="chevron-forward" size={18} color={colors.inkFaint} />
+        </Pressable>
+      )}
 
       <View style={styles.social}>
         <Text style={[styles.socialLabel, { color: colors.inkMuted, fontFamily: fonts.bodySemiBold }]}>
@@ -185,6 +202,20 @@ const styles = StyleSheet.create({
   infoValue: {
     fontSize: 14.5,
     marginTop: 2,
+  },
+  installRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: spacing.md,
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.md,
+    borderWidth: 1,
+    borderRadius: radius.lg,
+    padding: spacing.sm,
+  },
+  installText: {
+    flex: 1,
+    fontSize: 13.5,
   },
   social: {
     paddingHorizontal: spacing.lg,

@@ -1,8 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useRef, useState } from "react";
-import { Animated, Easing, Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import { Animated, Easing, Modal, Platform, Pressable, StyleSheet, Text, View, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { fonts, radius, spacing } from "@/constants/theme";
+import { fonts, radius, spacing, TAB_BAR_HEIGHT } from "@/constants/theme";
 import { useLocale } from "@/context/LocaleContext";
 import { useTheme } from "@/context/ThemeContext";
 import { callPhone, openWhatsapp } from "@/lib/contact";
@@ -33,7 +33,9 @@ export function FloatingContactButton() {
         style={({ pressed }) => [
           styles.fab,
           {
-            bottom: insets.bottom + 78,
+            // Always clear the tab bar (its content height + safe-area inset) with a
+            // fixed visual margin on top, so it never overlaps it at any screen size.
+            bottom: insets.bottom + TAB_BAR_HEIGHT + spacing.md,
             backgroundColor: colors.accent,
             shadowColor: colors.shadow,
             transform: [{ scale: pressed ? 0.94 : 1 }],
@@ -117,7 +119,9 @@ function Row({
 
 const styles = StyleSheet.create({
   fab: {
-    position: "absolute",
+    // "fixed" keeps it pinned to the viewport on web/PWA regardless of page
+    // scroll; native falls back to "absolute" within the tabs layout view.
+    position: Platform.OS === "web" ? ("fixed" as unknown as ViewStyle["position"]) : "absolute",
     right: spacing.lg,
     width: 56,
     height: 56,

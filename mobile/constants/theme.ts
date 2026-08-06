@@ -88,3 +88,8 @@ export const spacing = {
   xl: 32,
   xxl: 48,
 };
+
+// Base (non-safe-area) content height of the bottom tab bar. Actual on-screen
+// height is this plus the device's bottom safe-area inset, computed where the
+// tab bar and anything anchored above it (FAB, scroll padding) are laid out.
+export const TAB_BAR_HEIGHT = 64;

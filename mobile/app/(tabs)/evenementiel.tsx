@@ -15,7 +15,7 @@ export default function EvenementielScreen() {
   return (
     <ScrollView
       style={{ backgroundColor: colors.bg }}
-      contentContainerStyle={{ paddingTop: insets.top + spacing.md, paddingBottom: 140 }}
+      contentContainerStyle={{ paddingTop: insets.top + spacing.md, paddingBottom: 140 + insets.bottom }}
       showsVerticalScrollIndicator={false}
     >
       <View style={styles.head}>

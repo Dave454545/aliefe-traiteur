@@ -54,7 +54,7 @@ export default function MenuScreen() {
         ref={scrollRef}
         stickyHeaderIndices={[1]}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingTop: insets.top + spacing.md, paddingBottom: 140 }}
+        contentContainerStyle={{ paddingTop: insets.top + spacing.md, paddingBottom: 140 + insets.bottom }}
       >
         <View style={styles.headBlock}>
           <Text style={[styles.title, { color: colors.ink, fontFamily: fonts.display }]}>{t("menu.title")}</Text>
