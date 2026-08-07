@@ -40,7 +40,9 @@ export function FloatingContactButton() {
             // web polyfill's JS-computed inset can't be trusted for this value.
             bottom:
               Platform.OS === "web"
-                ? (`calc(env(safe-area-inset-bottom) + ${TAB_BAR_HEIGHT + spacing.md}px)` as unknown as number)
+                ? (`calc(min(env(safe-area-inset-bottom), 34px) + ${
+                    TAB_BAR_HEIGHT + spacing.md
+                  }px)` as unknown as number)
                 : insets.bottom + TAB_BAR_HEIGHT + spacing.md,
             backgroundColor: colors.accent,
             shadowColor: colors.shadow,
