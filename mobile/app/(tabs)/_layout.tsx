@@ -4,7 +4,7 @@ import React from "react";
 import { Platform, Pressable, View, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FloatingContactButton } from "@/components/FloatingContactButton";
-import { TAB_BAR_HEIGHT, fonts } from "@/constants/theme";
+import { SAFE_AREA_BOTTOM_CSS, TAB_BAR_HEIGHT, fonts } from "@/constants/theme";
 import { useLocale } from "@/context/LocaleContext";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -24,12 +24,13 @@ const webFixedStyle: ViewStyle | undefined =
         left: 0,
         right: 0,
         width: "100%",
-        height: `calc(${TAB_BAR_HEIGHT}px + env(safe-area-inset-bottom))`,
-        // 6px (rather than 8) top/bottom so the label baseline isn't clipped:
-        // the content box works out to a constant 52px regardless of the inset,
+        height: `calc(${TAB_BAR_HEIGHT}px + ${SAFE_AREA_BOTTOM_CSS})`,
+        // 4px top/bottom keeps the content box at 48px regardless of the inset,
         // which has to fit a 22px icon + its 4px margin + the ~14px label line.
-        paddingTop: 6,
-        paddingBottom: "calc(6px + env(safe-area-inset-bottom))",
+        // Don't shrink this further without rechecking the labels: they were
+        // clipped mid-glyph back when the box was 48px minus larger padding.
+        paddingTop: 4,
+        paddingBottom: `calc(4px + ${SAFE_AREA_BOTTOM_CSS})`,
       } as unknown as ViewStyle)
     : undefined;
 

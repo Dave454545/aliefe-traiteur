@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useRef, useState } from "react";
 import { Animated, Easing, Modal, Platform, Pressable, StyleSheet, Text, View, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { fonts, radius, spacing, TAB_BAR_HEIGHT } from "@/constants/theme";
+import { fonts, radius, SAFE_AREA_BOTTOM_CSS, spacing, TAB_BAR_HEIGHT } from "@/constants/theme";
 import { useLocale } from "@/context/LocaleContext";
 import { useTheme } from "@/context/ThemeContext";
 import { callPhone, openWhatsapp } from "@/lib/contact";
@@ -40,7 +40,7 @@ export function FloatingContactButton() {
             // web polyfill's JS-computed inset can't be trusted for this value.
             bottom:
               Platform.OS === "web"
-                ? (`calc(env(safe-area-inset-bottom) + ${
+                ? (`calc(${SAFE_AREA_BOTTOM_CSS} + ${
                     TAB_BAR_HEIGHT + spacing.md
                   }px)` as unknown as number)
                 : insets.bottom + TAB_BAR_HEIGHT + spacing.md,

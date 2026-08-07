@@ -92,4 +92,11 @@ export const spacing = {
 // Base (non-safe-area) content height of the bottom tab bar. Actual on-screen
 // height is this plus the device's bottom safe-area inset, computed where the
 // tab bar and anything anchored above it (FAB, scroll padding) are laid out.
-export const TAB_BAR_HEIGHT = 64;
+export const TAB_BAR_HEIGHT = 56;
+
+// Web/PWA only: how much of the bottom safe-area inset the tab bar reserves.
+// iOS reports 34px for the home indicator, but reserving all of it left ~46px
+// of dead space under the labels and read as a bulky bar. 20px still clears the
+// indicator pill (which sits within the bottom ~21px) without the bulk. Shared
+// with the floating button so it tracks the bar's real height.
+export const SAFE_AREA_BOTTOM_CSS = "min(env(safe-area-inset-bottom), 20px)";
