@@ -22,7 +22,16 @@ export default function Root({ children }: PropsWithChildren) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        {/*
+          NOT "black-translucent": that makes iOS start the web view under the
+          status bar while still sizing the viewport as (screen - status bar),
+          so window.innerHeight comes back 59px short and an equally tall strip
+          of screen is left uncovered at the *bottom*. That strip — not the tab
+          bar's own position — was the band showing under the tab bar, and the
+          same quirk was clipping the page heading behind the clock. "default"
+          starts the view below the status bar and lets it reach the bottom.
+        */}
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Alièfè" />
         <meta name="mobile-web-app-capable" content="yes" />
 
@@ -34,19 +43,18 @@ export default function Root({ children }: PropsWithChildren) {
           the gap shows through as blank space below fixed elements like the tab bar.
           100dvh tracks the actual visual viewport instead.
 
-          The body background is deliberately each theme's *surface* colour, not its
-          --bg: iOS paints the area outside the web view (the home-indicator gutter on
-          an installed PWA) with the body's background, and since the tab bar sits
-          flush against that edge and is painted in `surface`, using --bg instead left
-          a visible cream band below a white bar. Matching `surface` makes the gutter
-          read as part of the tab bar. See constants/theme.ts.
+          The body background matches each theme's --bg (see constants/theme.ts) so
+          overscroll and the pre-mount frame read as the page rather than a flash of
+          white. It was briefly set to `surface` to camouflage the strip iOS left
+          below the view; the status-bar meta above now removes that strip outright,
+          so this goes back to the colour that actually belongs here.
         */}
         <style
           id="aliefe-viewport-fix"
           dangerouslySetInnerHTML={{
             __html: `
-              body { background-color: #FFFFFE; }
-              @media (prefers-color-scheme: dark) { body { background-color: #1C2B24; } }
+              body { background-color: #F6F1E6; }
+              @media (prefers-color-scheme: dark) { body { background-color: #14201B; } }
               @supports (height: 100dvh) {
                 html, body, #root { height: 100dvh; }
               }
