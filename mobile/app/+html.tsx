@@ -32,16 +32,21 @@ export default function Root({ children }: PropsWithChildren) {
           expo-router's reset above pins html/body/#root to height:100%, which mobile
           browsers resolve against a stale viewport as the address bar shows/hides —
           the gap shows through as blank space below fixed elements like the tab bar.
-          100dvh tracks the actual visual viewport instead. The background-color
-          fallback (matching each theme's --bg, see constants/theme.ts) avoids a white
-          flash in the safe-area gutter before the app mounts its own surfaces.
+          100dvh tracks the actual visual viewport instead.
+
+          The body background is deliberately each theme's *surface* colour, not its
+          --bg: iOS paints the area outside the web view (the home-indicator gutter on
+          an installed PWA) with the body's background, and since the tab bar sits
+          flush against that edge and is painted in `surface`, using --bg instead left
+          a visible cream band below a white bar. Matching `surface` makes the gutter
+          read as part of the tab bar. See constants/theme.ts.
         */}
         <style
           id="aliefe-viewport-fix"
           dangerouslySetInnerHTML={{
             __html: `
-              body { background-color: #F6F1E6; }
-              @media (prefers-color-scheme: dark) { body { background-color: #14201B; } }
+              body { background-color: #FFFFFE; }
+              @media (prefers-color-scheme: dark) { body { background-color: #1C2B24; } }
               @supports (height: 100dvh) {
                 html, body, #root { height: 100dvh; }
               }

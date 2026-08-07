@@ -1,70 +1,12 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import React from "react";
-import { Platform, Pressable, Text, View, type ViewStyle } from "react-native";
+import { Platform, Pressable, View, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FloatingContactButton } from "@/components/FloatingContactButton";
 import { TAB_BAR_HEIGHT, fonts } from "@/constants/theme";
 import { useLocale } from "@/context/LocaleContext";
 import { useTheme } from "@/context/ThemeContext";
-
-// TEMPORARY diagnostic overlay to find why the tab bar leaves a blank strip
-// on some Android PWA installs — shows the real browser-measured numbers
-// instead of guessing. Remove once the root cause is confirmed.
-function DebugSafeArea() {
-  const [info, setInfo] = React.useState("");
-  React.useEffect(() => {
-    if (Platform.OS !== "web" || typeof document === "undefined") return;
-    const probe = document.createElement("div");
-    probe.style.position = "fixed";
-    probe.style.bottom = "0";
-    probe.style.left = "0";
-    probe.style.height = "0";
-    probe.style.width = "0";
-    probe.style.paddingBottom = "env(safe-area-inset-bottom)";
-    // Second probe reads the clamped value actually used by the tab bar, so the
-    // readout shows both the raw inset and what we render against.
-    probe.style.paddingTop = "min(env(safe-area-inset-bottom), 34px)";
-    probe.style.visibility = "hidden";
-    document.body.appendChild(probe);
-    const probed = window.getComputedStyle(probe);
-    const envBottom = probed.paddingBottom;
-    const envClamped = probed.paddingTop;
-    document.body.removeChild(probe);
-    const standalone =
-      window.matchMedia?.("(display-mode: standalone)").matches ||
-      (navigator as unknown as { standalone?: boolean }).standalone === true;
-    const bar = document.querySelector('[role="tablist"]')?.parentElement as HTMLElement | null;
-    const barRect = bar?.getBoundingClientRect();
-    setInfo(
-      `env-bottom=${envBottom} clamped=${envClamped} innerH=${window.innerHeight} vvH=${Math.round(window.visualViewport?.height ?? -1)} docH=${document.documentElement.clientHeight} standalone=${String(standalone)} barBottom=${barRect ? Math.round(barRect.bottom) : "?"} barH=${barRect ? Math.round(barRect.height) : "?"} ua=${navigator.userAgent.slice(0, 60)}`
-    );
-  }, []);
-  if (Platform.OS !== "web" || !info) return null;
-  return (
-    <View
-      style={
-        {
-          // Deliberately mid-screen and loud: at top:4 this sat behind the
-          // system status bar (same overlap that clipped the page heading) and
-          // was reported as "not showing up" at all.
-          position: "fixed",
-          top: "35%",
-          left: 8,
-          right: 8,
-          zIndex: 99999,
-          backgroundColor: "#D50000",
-          padding: 10,
-          borderRadius: 8,
-        } as unknown as ViewStyle
-      }
-    >
-      <Text style={{ color: "#fff", fontSize: 11, fontWeight: "700" }} selectable>
-        {info}
-      </Text>
-    </View>
-  );
-}
 
 // On web (PWA), the tab bar must be pinned to the true bottom of the visual
 // viewport rather than the end of the document flow — otherwise the browser's
@@ -73,18 +15,8 @@ function DebugSafeArea() {
 //
 // The height/padding also bypass `useSafeAreaInsets()` on web: that hook goes
 // through react-native-safe-area-context's web polyfill (a hidden div sampled
-// once on mount), which can report a stale/inflated bottom inset in
-// installed-PWA mode. Reading the CSS env() value directly has no polyfill in
-// between.
-//
-// The value is clamped because the inset is what drives the blank strip: the
-// bar's own background extends `inset + padding` below the icons, so an
-// oversized inset (seen on Android PWA installs reporting far more than the
-// ~24px a gesture bar actually needs) reads as dead white space. No phone's
-// home indicator / gesture bar needs more than ~34px, so anything beyond that
-// is bogus and clipping it costs nothing on devices reporting sane values.
-const SAFE_BOTTOM = "min(env(safe-area-inset-bottom), 34px)";
-
+// once on mount), which can report a stale inset in installed-PWA mode.
+// Reading the CSS env() value directly has no polyfill in between.
 const webFixedStyle: ViewStyle | undefined =
   Platform.OS === "web"
     ? ({
@@ -92,12 +24,12 @@ const webFixedStyle: ViewStyle | undefined =
         left: 0,
         right: 0,
         width: "100%",
-        height: `calc(${TAB_BAR_HEIGHT}px + ${SAFE_BOTTOM})`,
+        height: `calc(${TAB_BAR_HEIGHT}px + env(safe-area-inset-bottom))`,
         // 6px (rather than 8) top/bottom so the label baseline isn't clipped:
-        // this leaves 52px of content box for a 22px icon + its 4px margin +
-        // the ~14px label line box.
+        // the content box works out to a constant 52px regardless of the inset,
+        // which has to fit a 22px icon + its 4px margin + the ~14px label line.
         paddingTop: 6,
-        paddingBottom: `calc(6px + ${SAFE_BOTTOM})`,
+        paddingBottom: "calc(6px + env(safe-area-inset-bottom))",
       } as unknown as ViewStyle)
     : undefined;
 
@@ -130,7 +62,6 @@ export default function TabsLayout() {
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.bg }}>
-      <DebugSafeArea />
       <Tabs
         screenOptions={{
           headerShown: false,
