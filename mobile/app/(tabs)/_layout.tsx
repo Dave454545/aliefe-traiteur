@@ -12,9 +12,24 @@ import { useTheme } from "@/context/ThemeContext";
 // viewport rather than the end of the document flow — otherwise the browser's
 // safe-area gutter (home indicator / gesture bar) renders as blank space
 // below it. `position: "fixed"` isn't part of RN's ViewStyle type, hence the cast.
+//
+// The height/padding also bypass `useSafeAreaInsets()` on web: that hook goes
+// through react-native-safe-area-context's web polyfill (a hidden div sampled
+// once on mount), which has been observed returning an inflated bottom inset
+// in installed-PWA mode on some Android browsers — producing a large blank
+// strip under the bar instead of the few px the real gesture-bar inset is.
+// Reading `env(safe-area-inset-bottom)` straight in CSS has no such polyfill
+// in between and is always accurate.
 const webFixedStyle: ViewStyle | undefined =
   Platform.OS === "web"
-    ? ({ position: "fixed", left: 0, right: 0, width: "100%" } as unknown as ViewStyle)
+    ? ({
+        position: "fixed",
+        left: 0,
+        right: 0,
+        width: "100%",
+        height: `calc(${TAB_BAR_HEIGHT}px + env(safe-area-inset-bottom))`,
+        paddingBottom: "calc(8px + env(safe-area-inset-bottom))",
+      } as unknown as ViewStyle)
     : undefined;
 
 // Subtle press feedback (scale down) matching the FAB's micro-interaction.
@@ -60,8 +75,8 @@ export default function TabsLayout() {
             paddingTop: 8,
             paddingBottom: 8 + insets.bottom,
             zIndex: 100,
-            ...webFixedStyle,
             bottom: 0,
+            ...webFixedStyle,
           },
           tabBarLabelStyle: {
             fontFamily: fonts.body,

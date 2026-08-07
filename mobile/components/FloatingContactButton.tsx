@@ -35,7 +35,13 @@ export function FloatingContactButton() {
           {
             // Always clear the tab bar (its content height + safe-area inset) with a
             // fixed visual margin on top, so it never overlaps it at any screen size.
-            bottom: insets.bottom + TAB_BAR_HEIGHT + spacing.md,
+            // On web this reads env(safe-area-inset-bottom) directly rather than via
+            // useSafeAreaInsets() — see the note in app/(tabs)/_layout.tsx on why the
+            // web polyfill's JS-computed inset can't be trusted for this value.
+            bottom:
+              Platform.OS === "web"
+                ? (`calc(env(safe-area-inset-bottom) + ${TAB_BAR_HEIGHT + spacing.md}px)` as unknown as number)
+                : insets.bottom + TAB_BAR_HEIGHT + spacing.md,
             backgroundColor: colors.accent,
             shadowColor: colors.shadow,
             transform: [{ scale: pressed ? 0.94 : 1 }],
