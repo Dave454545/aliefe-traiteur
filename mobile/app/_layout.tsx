@@ -56,7 +56,25 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (Platform.OS === "web" && typeof navigator !== "undefined" && "serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
+      // `updateViaCache: "none"` stops the browser from validating sw.js against
+      // its own HTTP cache — without it a device can keep running an old worker
+      // (and therefore an old bundle) long after a deploy, which is exactly how
+      // earlier fixes appeared not to ship. The explicit update() re-checks on
+      // every launch, and reloading on controllerchange swaps the page over to
+      // the new worker instead of waiting for every tab to be closed first.
+      navigator.serviceWorker
+        .register("/sw.js", { updateViaCache: "none" })
+        .then((registration) => registration.update().catch(() => {}))
+        .catch(() => {});
+
+      let reloading = false;
+      const onControllerChange = () => {
+        if (reloading) return;
+        reloading = true;
+        window.location.reload();
+      };
+      navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
+      return () => navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
     }
   }, []);
 

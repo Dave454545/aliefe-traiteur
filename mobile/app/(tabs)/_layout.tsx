@@ -45,18 +45,21 @@ function DebugSafeArea() {
     <View
       style={
         {
+          // Deliberately mid-screen and loud: at top:4 this sat behind the
+          // system status bar (same overlap that clipped the page heading) and
+          // was reported as "not showing up" at all.
           position: "fixed",
-          top: 4,
-          left: 4,
-          right: 4,
-          zIndex: 9999,
-          backgroundColor: "rgba(0,0,0,0.8)",
-          padding: 6,
-          borderRadius: 6,
+          top: "35%",
+          left: 8,
+          right: 8,
+          zIndex: 99999,
+          backgroundColor: "#D50000",
+          padding: 10,
+          borderRadius: 8,
         } as unknown as ViewStyle
       }
     >
-      <Text style={{ color: "#fff", fontSize: 9 }} selectable>
+      <Text style={{ color: "#fff", fontSize: 11, fontWeight: "700" }} selectable>
         {info}
       </Text>
     </View>

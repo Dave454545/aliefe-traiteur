@@ -1,5 +1,7 @@
-// Bump this when shipping a new deploy so old caches get cleared.
-const CACHE_NAME = "aliefe-v1";
+// Bump this when shipping a new deploy so old caches get cleared: the activate
+// handler below deletes every cache whose name doesn't match, so changing this
+// string is what purges stale bundles from devices already running the app.
+const CACHE_NAME = "aliefe-v3";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
