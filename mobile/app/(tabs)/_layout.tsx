@@ -1,12 +1,62 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import React from "react";
-import { Platform, Pressable, View, type ViewStyle } from "react-native";
+import { Platform, Pressable, Text, View, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FloatingContactButton } from "@/components/FloatingContactButton";
 import { TAB_BAR_HEIGHT, fonts } from "@/constants/theme";
 import { useLocale } from "@/context/LocaleContext";
 import { useTheme } from "@/context/ThemeContext";
+
+// TEMPORARY diagnostic overlay to find why the tab bar leaves a blank strip
+// on some Android PWA installs — shows the real browser-measured numbers
+// instead of guessing. Remove once the root cause is confirmed.
+function DebugSafeArea() {
+  const [info, setInfo] = React.useState("");
+  React.useEffect(() => {
+    if (Platform.OS !== "web" || typeof document === "undefined") return;
+    const probe = document.createElement("div");
+    probe.style.position = "fixed";
+    probe.style.bottom = "0";
+    probe.style.left = "0";
+    probe.style.height = "0";
+    probe.style.width = "0";
+    probe.style.paddingBottom = "env(safe-area-inset-bottom)";
+    probe.style.visibility = "hidden";
+    document.body.appendChild(probe);
+    const envBottom = window.getComputedStyle(probe).paddingBottom;
+    document.body.removeChild(probe);
+    const standalone =
+      window.matchMedia?.("(display-mode: standalone)").matches ||
+      (navigator as unknown as { standalone?: boolean }).standalone === true;
+    const bar = document.querySelector('[role="tablist"]')?.parentElement as HTMLElement | null;
+    const barRect = bar?.getBoundingClientRect();
+    setInfo(
+      `env-bottom=${envBottom} innerH=${window.innerHeight} vvH=${Math.round(window.visualViewport?.height ?? -1)} docH=${document.documentElement.clientHeight} standalone=${String(standalone)} barBottom=${barRect ? Math.round(barRect.bottom) : "?"} barH=${barRect ? Math.round(barRect.height) : "?"} ua=${navigator.userAgent.slice(0, 60)}`
+    );
+  }, []);
+  if (Platform.OS !== "web" || !info) return null;
+  return (
+    <View
+      style={
+        {
+          position: "fixed",
+          top: 4,
+          left: 4,
+          right: 4,
+          zIndex: 9999,
+          backgroundColor: "rgba(0,0,0,0.8)",
+          padding: 6,
+          borderRadius: 6,
+        } as unknown as ViewStyle
+      }
+    >
+      <Text style={{ color: "#fff", fontSize: 9 }} selectable>
+        {info}
+      </Text>
+    </View>
+  );
+}
 
 // On web (PWA), the tab bar must be pinned to the true bottom of the visual
 // viewport rather than the end of the document flow — otherwise the browser's
@@ -61,6 +111,7 @@ export default function TabsLayout() {
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.bg }}>
+      <DebugSafeArea />
       <Tabs
         screenOptions={{
           headerShown: false,
